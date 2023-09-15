@@ -1,0 +1,16 @@
+version: '3.6'
+
+services:
+  backup:
+    build:
+      context: .
+    container_name: bitwarden-backup
+    env_file:
+      - ./.env
+    networks:
+      - net
+    volumes:
+      - './results:/data/result'
+
+networks:
+  net:
